@@ -1,0 +1,308 @@
+.page {
+  padding: 20rpx 24rpx 80rpx;
+}
+
+/* ---------- 对局头部 ---------- */
+.session-head {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  box-shadow: 0 4rpx 16rpx rgba(15, 157, 126, 0.06);
+}
+.head-name {
+  font-size: 34rpx;
+  font-weight: 700;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.head-actions {
+  display: flex;
+  margin-top: 22rpx;
+}
+.action-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  text-align: center;
+  box-sizing: border-box;
+}
+.action-btn:first-child {
+  margin-right: 14rpx;
+}
+.btn-hover {
+  opacity: 0.8;
+}
+.code-btn {
+  background: #fff;
+  color: #0f9d7e;
+  border: 2rpx solid #0f9d7e;
+}
+.qr-btn {
+  background: #0f9d7e;
+  color: #fff;
+}
+
+/* ---------- 结束对局 ---------- */
+.end-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+.end-btn {
+  padding: 0 48rpx;
+  height: 64rpx;
+  line-height: 62rpx;
+  border-radius: 32rpx;
+  border: 2rpx solid #e0a3a3;
+  background: #fff;
+  color: #c0564f;
+  font-size: 26rpx;
+  font-weight: 600;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* ---------- 总分面板 ---------- */
+.total-list {
+  margin: 26rpx 0 8rpx;
+  background: #f8f9fa;
+  border-radius: 16rpx;
+  padding: 8rpx 28rpx;
+  max-height: 480rpx;
+  overflow-y: auto;
+}
+.total-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22rpx 0;
+  border-bottom: 1rpx solid #eef0f2;
+}
+.total-item:last-child {
+  border-bottom: none;
+}
+.total-name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.total-balance {
+  font-size: 34rpx;
+  font-weight: 700;
+}
+.end-warn {
+  margin-top: 22rpx;
+  font-size: 24rpx;
+  color: #c0564f;
+  text-align: center;
+}
+
+/* ---------- 头像颜色面板 ---------- */
+.color-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 36rpx 0 8rpx;
+}
+.color-dot {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  margin: 12rpx;
+  border: 6rpx solid transparent;
+  box-sizing: border-box;
+}
+.color-dot.active {
+  border-color: #2d3436;
+}
+
+/* ---------- 我的分数卡片 ---------- */
+.me-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx 28rpx;
+  margin-top: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(15, 157, 126, 0.06);
+}
+.avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+.me-info {
+  flex: 1;
+  margin-left: 24rpx;
+  min-width: 0;
+}
+.me-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.me-label {
+  font-size: 24rpx;
+  color: #9aa0a6;
+  margin-top: 6rpx;
+}
+.me-score {
+  font-size: 48rpx;
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #495057;
+  margin: 32rpx 8rpx 16rpx;
+}
+
+/* ---------- 成员竖向列表 ---------- */
+.member-list {
+  display: flex;
+  flex-direction: column;
+}
+.member-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx 28rpx;
+  margin-bottom: 14rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.04);
+}
+.member-item.self {
+  background: #f3fbf8;
+  border: 1rpx solid #cdeee4;
+}
+.member-name {
+  flex: 1;
+  margin-left: 24rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.member-balance {
+  flex-shrink: 0;
+  font-size: 36rpx;
+  font-weight: 700;
+}
+.card-hover {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+.badge {
+  position: absolute;
+  right: -10rpx;
+  bottom: -4rpx;
+  min-width: 44rpx;
+  padding: 2rpx 10rpx;
+  border-radius: 24rpx;
+  background: #fff;
+  font-size: 22rpx;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- 记分面板 ---------- */
+.panel-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 28rpx;
+}
+.panel-head .panel-title {
+  margin-top: 16rpx;
+}
+.tip-bar {
+  text-align: center;
+  font-size: 26rpx;
+  color: #0f9d7e;
+  background: #eef9f5;
+  border-radius: 14rpx;
+  padding: 18rpx;
+  margin-bottom: 20rpx;
+}
+.preset-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.preset-chip {
+  width: 31.5%;
+  margin: 8rpx 0.9%;
+  text-align: center;
+  padding: 22rpx 0;
+  background: #f8f9fa;
+  border: 2rpx solid #e9ecef;
+  border-radius: 14rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #2d3436;
+  box-sizing: border-box;
+}
+.preset-chip.active {
+  background: #eef9f5;
+  border-color: #0f9d7e;
+  color: #0f9d7e;
+}
+.input-row {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  background: #f8f9fa;
+  border: 1rpx solid #e9ecef;
+  border-radius: 16rpx;
+  padding: 20rpx 28rpx;
+}
+.input-label {
+  font-size: 28rpx;
+  color: #9aa0a6;
+  margin-right: 24rpx;
+}
+.num-input {
+  flex: 1;
+  font-size: 44rpx;
+  font-weight: 600;
+  height: 60rpx;
+}
+
+/* ---------- 邀请码弹层 ---------- */
+.code-panel {
+  text-align: center;
+}
+.code-display {
+  font-size: 68rpx;
+  font-weight: 800;
+  letter-spacing: 14rpx;
+  color: #0f9d7e;
+  background: #eef9f5;
+  border-radius: 16rpx;
+  padding: 36rpx 0;
+  margin: 32rpx 0 24rpx;
+  font-family: 'Courier New', monospace;
+}
+
+/* ---------- 二维码弹层 ---------- */
+.qr-panel {
+  text-align: center;
+}
+.qr-img {
+  width: 400rpx;
+  height: 400rpx;
+  margin: 36rpx auto 20rpx;
+  display: block;
+}
+.qr-tip {
+  font-size: 24rpx;
+  color: #9aa0a6;
+  margin-bottom: 24rpx;
+}

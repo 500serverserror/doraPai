@@ -1,0 +1,115 @@
+page {
+  background: #f4f5f7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: #2d3436;
+  font-size: 28rpx;
+}
+
+button::after {
+  border: none;
+}
+
+/* 头像 */
+.avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  display: block;
+  background: #eef1f4;
+}
+.avatar.lg {
+  width: 140rpx;
+  height: 140rpx;
+}
+.avatar-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 40rpx;
+}
+
+/* 语义色 */
+.win {
+  color: #e64545;
+}
+.lose {
+  color: #2f9e44;
+}
+
+/* 按钮 */
+.btn-primary {
+  background: #0f9d7e;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+  line-height: 2.6;
+}
+.btn-ghost {
+  background: #f1f3f5;
+  color: #495057;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+  line-height: 2.6;
+}
+button[disabled] {
+  opacity: 0.45;
+}
+
+/* 空状态 */
+.empty {
+  text-align: center;
+  padding: 140rpx 40rpx;
+}
+.empty-icon {
+  font-size: 100rpx;
+}
+.empty-text {
+  color: #9aa0a6;
+  margin: 24rpx 0 32rpx;
+  font-size: 28rpx;
+}
+.empty.small {
+  padding: 60rpx 40rpx;
+}
+
+/* 弹层 */
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+}
+.panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-radius: 32rpx 32rpx 0 0;
+  padding: 40rpx 40rpx 60rpx;
+  z-index: 30;
+}
+.panel-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  text-align: center;
+}
+.panel-sub {
+  font-size: 24rpx;
+  color: #9aa0a6;
+  text-align: center;
+  margin-top: 8rpx;
+}
+.panel-actions {
+  display: flex;
+  margin-top: 44rpx;
+}
+.panel-actions button {
+  flex: 1;
+  margin: 0 10rpx;
+}

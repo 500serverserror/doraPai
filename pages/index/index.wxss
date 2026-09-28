@@ -1,0 +1,159 @@
+.page {
+  padding: 20rpx 24rpx 80rpx;
+}
+
+/* ---------- 列表头 ---------- */
+.list-head {
+  margin: 8rpx 8rpx 20rpx;
+}
+.profile-hint {
+  margin: 0 8rpx 20rpx;
+  padding: 18rpx 24rpx;
+  background: #eef9f5;
+  color: #0f9d7e;
+  border-radius: 14rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+.skip-row {
+  margin-top: 24rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #9aa0a6;
+  padding: 10rpx 0;
+}
+.head-btns {
+  display: flex;
+}
+.head-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+.head-btn:first-child {
+  margin-right: 14rpx;
+}
+.btn-hover {
+  opacity: 0.8;
+}
+.join-btn {
+  background: #fff;
+  color: #0f9d7e;
+  border: 2rpx solid #0f9d7e;
+}
+.new-btn {
+  background: #0f9d7e;
+  color: #fff;
+}
+.code-input {
+  text-transform: uppercase;
+  letter-spacing: 8rpx;
+  font-weight: 700;
+}
+
+/* ---------- 对局列表 ---------- */
+.session-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.04);
+}
+.card-hover {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+.session-icon {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 18rpx;
+  background: #eef9f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44rpx;
+  flex-shrink: 0;
+}
+.session-info {
+  flex: 1;
+  margin-left: 22rpx;
+  min-width: 0;
+}
+.session-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.session-meta {
+  font-size: 24rpx;
+  color: #9aa0a6;
+  margin-top: 8rpx;
+}
+.session-score {
+  font-size: 40rpx;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ---------- 设置昵称面板 ---------- */
+.setup-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 36rpx 0 8rpx;
+}
+.avatar-pick {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border-radius: 50%;
+  line-height: 1;
+}
+.avatar-pick .avatar {
+  border: 4rpx solid #e9ecef;
+}
+.cam {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: #0f9d7e;
+  color: #fff;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4rpx solid #fff;
+}
+.setup-tip {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  color: #9aa0a6;
+}
+.field {
+  margin-top: 30rpx;
+}
+.field-input {
+  background: #f8f9fa;
+  border: 1rpx solid #e9ecef;
+  border-radius: 16rpx;
+  padding: 20rpx 28rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+.enter-btn {
+  width: 100%;
+  margin-top: 32rpx;
+}

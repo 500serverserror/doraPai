@@ -1,0 +1,62 @@
+<view class="page">
+  <view class="me-card">
+    <view class="avatar-wrap" bindtap="onPickColor" hover-class="card-hover">
+      <image wx:if="{{user.avatar}}" class="avatar lg" src="{{user.avatar}}" mode="aspectFill" />
+      <view wx:else class="avatar lg avatar-text" style="background: {{user.color}}">{{user.initial}}</view>
+    </view>
+    <view class="me-info">
+      <view class="me-name">{{user.name}}</view>
+      <view class="me-label">微信自动登录 · 独立账号</view>
+      <view class="color-hint">点击头像更换颜色</view>
+    </view>
+  </view>
+
+  <!-- 累计总分 -->
+  <view class="total-card">
+    <view class="total-label">所有对局累计总分</view>
+    <view class="total-score {{totalBalance >= 0 ? 'win' : 'lose'}}">{{totalBalanceStr}}</view>
+  </view>
+
+  <view class="form-card">
+    <view class="form-title">个人资料</view>
+
+    <view class="field">
+      <text class="field-label">昵称</text>
+      <input
+        class="field-input"
+        value="{{edit.name}}"
+        bindinput="onNameInput"
+        placeholder="输入昵称"
+        maxlength="8"
+      />
+    </view>
+
+    <button class="btn-primary save-btn" bindtap="onSave">保存资料</button>
+  </view>
+
+  <view class="account-tip">
+    <view class="tip-title">说明</view>
+    <view class="tip-text">每个微信用户打开小程序即为独立账号（微信自动登录），对局与分数保存在云端，换设备不丢失；对局内记分时记入方加分、记出方扣分，全场总分守恒。本工具仅用于麻将等游戏的分数记录，不涉及真实转账。</view>
+  </view>
+
+  <!-- 头像颜色面板 -->
+  <view class="mask" wx:if="{{showColorPanel}}" bindtap="onCloseColorPanel">
+    <view class="panel" catchtap="noop">
+      <view class="panel-title">选择头像颜色</view>
+      <view class="panel-sub">无微信头像时，以所选颜色区分</view>
+      <view class="color-grid">
+        <view
+          class="color-dot {{item === user.color ? 'active' : ''}}"
+          wx:for="{{colors}}"
+          wx:key="*this"
+          style="background: {{item}}"
+          data-color="{{item}}"
+          bindtap="onPickColorDot"
+        ></view>
+      </view>
+      <view class="panel-actions">
+        <button class="btn-ghost" bindtap="onCloseColorPanel">取消</button>
+      </view>
+    </view>
+  </view>
+</view>

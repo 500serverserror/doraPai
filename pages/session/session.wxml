@@ -1,0 +1,166 @@
+<view class="page">
+  <!-- 对局头部 -->
+  <view class="session-head">
+    <view class="head-name">{{session.name}}</view>
+    <view class="head-actions">
+      <view class="action-btn code-btn" hover-class="btn-hover" bindtap="onShowCode">邀请码</view>
+      <view class="action-btn qr-btn" hover-class="btn-hover" bindtap="onShowQr">二维码</view>
+    </view>
+    <view class="end-row">
+      <view class="end-btn" hover-class="btn-hover" bindtap="onEndSession">结束对局</view>
+    </view>
+  </view>
+
+  <!-- 对局成员：竖向排列 -->
+  <view class="section-title">对局成员 · 点击头像记分</view>
+  <view class="member-list">
+    <view
+      class="member-item {{item.isMe ? 'self' : ''}}"
+      wx:for="{{allMembers}}"
+      wx:key="_id"
+      data-id="{{item._id}}"
+      bindtap="onTapStrip"
+      hover-class="card-hover"
+    >
+      <view class="avatar-wrap">
+        <image wx:if="{{item.avatar}}" class="avatar" src="{{item.avatar}}" mode="aspectFill" />
+        <view wx:else class="avatar avatar-text" style="background: {{item.color}}">{{item.initial}}</view>
+      </view>
+      <view class="member-name">{{item.name}}{{item.isMe ? '（我）' : ''}}</view>
+      <view class="member-balance {{item.balance >= 0 ? 'win' : 'lose'}}">{{item.balanceStr}}</view>
+    </view>
+  </view>
+
+  <view class="empty small" wx:if="{{others.length === 0}}">
+    <view class="empty-text">点击右上角「转发」或「二维码」邀请好友加入对局</view>
+  </view>
+
+  <!-- 我的分数 -->
+  <view class="me-card" wx:if="{{me}}">
+    <view class="avatar-wrap">
+      <image wx:if="{{me.avatar}}" class="avatar" src="{{me.avatar}}" mode="aspectFill" />
+      <view wx:else class="avatar avatar-text" style="background: #0f9d7e">{{me.initial}}</view>
+    </view>
+    <view class="me-info">
+      <view class="me-name">{{me.name}}（我）</view>
+      <view class="me-label">本局分数</view>
+    </view>
+    <view class="me-score {{me.balance >= 0 ? 'win' : 'lose'}}">{{me.balanceStr}}</view>
+  </view>
+
+  <!-- 记分面板 -->
+  <view class="mask" wx:if="{{showPanel}}" bindtap="onClosePanel">
+    <view class="panel" catchtap="noop">
+      <view class="panel-head">
+        <view class="avatar-wrap">
+          <image wx:if="{{target.avatar}}" class="avatar" src="{{target.avatar}}" mode="aspectFill" />
+          <view wx:else class="avatar avatar-text" style="background: {{target.color}}">{{target.initial}}</view>
+        </view>
+        <view class="panel-title">给 {{target.name}} 记分</view>
+        <view class="panel-sub">对方本局分数 {{target.balanceStr}}</view>
+      </view>
+
+      <view class="tip-bar">
+        <text wx:if="{{inputNum}}">你将减少 {{inputNum}} 分，对方增加 {{inputNum}} 分</text>
+        <text wx:else>选择或输入要记的分数</text>
+      </view>
+
+      <view class="preset-row">
+        <view
+          class="preset-chip {{inputNum === item ? 'active' : ''}}"
+          wx:for="{{presets}}"
+          wx:key="*this"
+          data-num="{{item}}"
+          bindtap="onPreset"
+        >{{item}}</view>
+      </view>
+
+      <view class="input-row">
+        <text class="input-label">自定义</text>
+        <input
+          class="num-input"
+          type="number"
+          value="{{inputNum}}"
+          bindinput="onInputNum"
+          placeholder="输入分数"
+          focus="{{panelFocus}}"
+        />
+      </view>
+
+      <view class="panel-actions">
+        <button class="btn-ghost" bindtap="onClosePanel">取消</button>
+        <button class="btn-primary" bindtap="onConfirm">确认记分</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 头像颜色面板 -->
+  <view class="mask" wx:if="{{showColorPanel}}" bindtap="onCloseColorPanel">
+    <view class="panel" catchtap="noop">
+      <view class="panel-title">选择头像颜色</view>
+      <view class="panel-sub">无微信头像时，以所选颜色区分</view>
+      <view class="color-grid">
+        <view
+          class="color-dot {{item === targetColor ? 'active' : ''}}"
+          wx:for="{{colors}}"
+          wx:key="*this"
+          style="background: {{item}}"
+          data-color="{{item}}"
+          bindtap="onPickColorDot"
+        ></view>
+      </view>
+      <view class="panel-actions">
+        <button class="btn-ghost" bindtap="onCloseColorPanel">关闭</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 结束对局面板 -->
+  <view class="mask" wx:if="{{showEndPanel}}" bindtap="onCloseEndPanel">
+    <view class="panel end-panel" catchtap="noop">
+      <view class="panel-title">对局总分</view>
+      <view class="panel-sub">「{{session.name}}」本局分数汇总</view>
+      <view class="total-list">
+        <view class="total-item" wx:for="{{allMembers}}" wx:key="_id">
+          <view class="total-name">{{item.name}}{{item.isMe ? '（我）' : ''}}</view>
+          <view class="total-balance {{item.balance >= 0 ? 'win' : 'lose'}}">{{item.balanceStr}}</view>
+        </view>
+      </view>
+      <view class="end-warn">结束后对局将关闭，不可再记分</view>
+      <view class="panel-actions">
+        <button class="btn-ghost" bindtap="onCloseEndPanel">取消</button>
+        <button class="btn-primary" bindtap="onConfirmEnd">确认结束</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 邀请码弹层 -->
+  <view class="mask" wx:if="{{showCode}}" bindtap="onCloseCode">
+    <view class="panel code-panel" catchtap="noop">
+      <view class="panel-title">本局邀请码</view>
+      <view class="panel-sub">好友在首页点「加入」，输入此邀请码即可进入对局</view>
+      <view class="code-display">{{session.code}}</view>
+      <view class="panel-actions">
+        <button class="btn-ghost" bindtap="onCloseCode">关闭</button>
+        <button class="btn-primary" bindtap="onCopyCode">复制邀请码</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 二维码弹层 -->
+  <view class="mask" wx:if="{{showQr}}" bindtap="onCloseQr">
+    <view class="panel qr-panel" catchtap="noop">
+      <view class="panel-title">扫码加入对局</view>
+      <view class="panel-sub">好友用微信扫码即可进入「{{session.name}}」</view>
+      <image
+        wx:if="{{qrFileID}}"
+        class="qr-img"
+        src="{{qrFileID}}"
+        mode="aspectFit"
+        show-menu-by-longpress="{{true}}"
+      />
+      <view class="qr-tip">长按图片可保存或转发</view>
+      <button class="btn-ghost" bindtap="onCloseQr">关闭</button>
+    </view>
+  </view>
+</view>

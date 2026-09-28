@@ -1,0 +1,127 @@
+.page {
+  padding: 24rpx 24rpx 80rpx;
+}
+
+/* ---------- 年份分组 ---------- */
+.year-group {
+  margin-bottom: 28rpx;
+}
+.year-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12rpx 8rpx 16rpx;
+}
+.year-title {
+  font-size: 34rpx;
+  font-weight: 800;
+  color: #2d3436;
+}
+.year-total {
+  display: flex;
+  align-items: center;
+}
+.year-total-label {
+  font-size: 24rpx;
+  color: #9aa0a6;
+  margin-right: 12rpx;
+}
+
+.record-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.04);
+}
+.record-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f0f2f4;
+}
+.record-name {
+  font-size: 32rpx;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  margin-right: 16rpx;
+}
+.record-time {
+  font-size: 24rpx;
+  color: #9aa0a6;
+  flex-shrink: 0;
+}
+.record-summary {
+  padding-top: 8rpx;
+}
+.record-my {
+  display: flex;
+  align-items: center;
+  padding-top: 22rpx;
+}
+.record-my-label {
+  font-size: 26rpx;
+  color: #9aa0a6;
+  flex: 1;
+}
+.record-balance {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+.record-arrow {
+  font-size: 40rpx;
+  color: #c0c4c9;
+  margin-left: 16rpx;
+  line-height: 1;
+}
+.card-hover {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+/* ---------- 详情弹层 ---------- */
+.detail-list {
+  margin: 24rpx 0 8rpx;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22rpx 8rpx;
+  border-bottom: 1rpx solid #f0f2f4;
+}
+.detail-item:last-child {
+  border-bottom: none;
+}
+.detail-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #495057;
+}
+.clear-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 40rpx;
+}
+.clear-btn {
+  padding: 0 56rpx;
+  height: 68rpx;
+  line-height: 66rpx;
+  border-radius: 34rpx;
+  border: 2rpx solid #e0a3a3;
+  background: #fff;
+  color: #c0564f;
+  font-size: 26rpx;
+  font-weight: 600;
+  text-align: center;
+  box-sizing: border-box;
+}
+.btn-hover {
+  opacity: 0.8;
+}

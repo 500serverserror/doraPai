@@ -1,0 +1,130 @@
+.page {
+  padding: 24rpx 24rpx 60rpx;
+}
+
+.me-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 34rpx 28rpx;
+  box-shadow: 0 4rpx 16rpx rgba(15, 157, 126, 0.06);
+}
+.avatar-wrap {
+  flex-shrink: 0;
+}
+.me-info {
+  flex: 1;
+  margin-left: 26rpx;
+  min-width: 0;
+}
+.me-name {
+  font-size: 34rpx;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.me-label {
+  font-size: 24rpx;
+  color: #9aa0a6;
+  margin-top: 6rpx;
+}
+.color-hint {
+  font-size: 22rpx;
+  color: #0f9d7e;
+  margin-top: 10rpx;
+}
+.card-hover {
+  opacity: 0.85;
+  transform: scale(0.97);
+}
+
+/* ---------- 累计总分 ---------- */
+.total-card {
+  margin-top: 24rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4rpx 16rpx rgba(15, 157, 126, 0.06);
+}
+.total-label {
+  font-size: 28rpx;
+  color: #495057;
+  font-weight: 600;
+}
+.total-score {
+  font-size: 52rpx;
+  font-weight: 800;
+}
+
+.color-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 36rpx 0 8rpx;
+}
+.color-dot {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  margin: 12rpx;
+  border: 6rpx solid transparent;
+  box-sizing: border-box;
+}
+.color-dot.active {
+  border-color: #2d3436;
+}
+
+.form-card {
+  margin-top: 24rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx 28rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.04);
+}
+.form-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #495057;
+}
+.field {
+  margin-top: 24rpx;
+}
+.field-label {
+  display: block;
+  font-size: 26rpx;
+  color: #9aa0a6;
+  margin-bottom: 14rpx;
+}
+.field-input {
+  background: #f8f9fa;
+  border: 1rpx solid #e9ecef;
+  border-radius: 16rpx;
+  padding: 20rpx 28rpx;
+  font-size: 32rpx;
+}
+.save-btn {
+  margin-top: 32rpx;
+}
+
+.account-tip {
+  margin-top: 24rpx;
+  background: #eef9f5;
+  border-radius: 20rpx;
+  padding: 26rpx 28rpx;
+}
+.tip-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #0f9d7e;
+}
+.tip-text {
+  font-size: 24rpx;
+  color: #5b8a7c;
+  line-height: 1.7;
+  margin-top: 10rpx;
+}

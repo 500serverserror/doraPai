@@ -1,0 +1,98 @@
+<view class="page">
+  <!-- 对局列表（无需登录即可浏览） -->
+  <view class="list-head">
+    <view class="head-btns">
+      <view class="head-btn join-btn" hover-class="btn-hover" bindtap="onJoin">加入</view>
+      <view class="head-btn new-btn" hover-class="btn-hover" bindtap="onCreate">＋ 新建</view>
+    </view>
+  </view>
+
+  <view class="profile-hint" wx:if="{{!hasProfile}}" bindtap="onOpenSetup">
+    设置昵称后可创建对局，点击立即设置
+  </view>
+
+  <view class="session-list" wx:if="{{sessions.length > 0}}">
+    <view
+      class="session-card"
+      wx:for="{{sessions}}"
+      wx:key="_id"
+      data-id="{{item._id}}"
+      bindtap="goSession"
+      hover-class="card-hover"
+    >
+      <view class="session-icon">🀄</view>
+      <view class="session-info">
+        <view class="session-name">{{item.name}}</view>
+        <view class="session-meta">{{item.memberCount}} 人参与 · {{item.timeStr}}</view>
+      </view>
+      <view class="session-score {{item.myBalance >= 0 ? 'win' : 'lose'}}">{{item.myBalanceStr}}</view>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    <view class="empty-icon">🀄</view>
+    <view class="empty-text">还没有对局，新建一个分享给牌友吧</view>
+    <button class="btn-primary" bindtap="onCreate">新建对局</button>
+  </view>
+
+  <!-- 设置昵称面板（仅在用户主动操作时弹出） -->
+  <view class="mask" wx:if="{{needSetup}}">
+    <view class="panel" catchtap="noop">
+      <view class="panel-title">设置你的昵称</view>
+      <view class="panel-sub">用于对局中区分身份</view>
+      <view class="field">
+        <input
+          class="field-input"
+          placeholder="输入昵称（如：老王）"
+          maxlength="8"
+          value="{{edit.name}}"
+          bindinput="onNameInput"
+        />
+      </view>
+      <button class="btn-primary enter-btn" bindtap="onSaveProfile">保存并继续</button>
+      <view class="skip-row" bindtap="onCloseSetup">暂不设置，先浏览</view>
+    </view>
+  </view>
+
+  <!-- 新建对局弹层 -->
+  <view class="mask" wx:if="{{showCreate}}" bindtap="onCloseCreate">
+    <view class="panel" catchtap="noop">
+      <view class="panel-title">新建对局</view>
+      <view class="field">
+        <input
+          class="field-input"
+          value="{{createName}}"
+          bindinput="onCreateName"
+          placeholder="对局名称（如：周六麻将局）"
+          maxlength="12"
+        />
+      </view>
+      <view class="panel-actions">
+        <button class="btn-ghost" bindtap="onCloseCreate">取消</button>
+        <button class="btn-primary" bindtap="onConfirmCreate">创建</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 输入邀请码加入弹层 -->
+  <view class="mask" wx:if="{{showJoin}}" bindtap="onCloseJoin">
+    <view class="panel" catchtap="noop">
+      <view class="panel-title">加入对局</view>
+      <view class="panel-sub">输入对局邀请码（对局详情页可查看）</view>
+      <view class="field">
+        <input
+          class="field-input code-input"
+          value="{{joinCode}}"
+          bindinput="onJoinInput"
+          placeholder="6 位邀请码"
+          maxlength="6"
+          focus="{{true}}"
+        />
+      </view>
+      <view class="panel-actions">
+        <button class="btn-ghost" bindtap="onCloseJoin">取消</button>
+        <button class="btn-primary" bindtap="onConfirmJoin">加入</button>
+      </view>
+    </view>
+  </view>
+</view>

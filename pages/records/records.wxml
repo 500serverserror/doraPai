@@ -1,0 +1,58 @@
+<view class="page">
+  <view class="year-group" wx:for="{{groups}}" wx:key="year" wx:for-item="g" wx:for-index="gindex">
+    <view class="year-head">
+      <text class="year-title">{{g.year}}年</text>
+      <view class="year-total">
+        <text class="year-total-label">年度总计</text>
+        <text class="record-balance {{g.total >= 0 ? 'win' : 'lose'}}">{{g.totalStr}}</text>
+      </view>
+    </view>
+
+    <view
+      class="record-card"
+      wx:for="{{g.records}}"
+      wx:for-item="rec"
+      wx:key="_id"
+      data-gidx="{{gindex}}"
+      data-ridx="{{index}}"
+      bindtap="onTapRecord"
+      hover-class="card-hover"
+    >
+      <view class="record-head">
+        <view class="record-name">{{rec.name}}</view>
+        <view class="record-time">{{rec.timeStr}} 结束</view>
+      </view>
+      <view class="record-my">
+        <text class="record-my-label">我的得分</text>
+        <text class="record-balance {{rec.myBalance >= 0 ? 'win' : 'lose'}}">{{rec.myBalanceStr}}</text>
+        <text class="record-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{groups.length === 0}}">
+    <view class="empty-icon">🏁</view>
+    <view class="empty-text">还没有已结束的对局</view>
+  </view>
+
+  <view class="clear-row" wx:if="{{groups.length > 0}}">
+    <view class="clear-btn" hover-class="btn-hover" bindtap="onClear">清空记录</view>
+  </view>
+
+  <!-- 对局详情：所有用户得分 -->
+  <view class="mask" wx:if="{{detail}}" bindtap="onCloseDetail">
+    <view class="panel" catchtap="noop">
+      <view class="panel-title">{{detail.name}}</view>
+      <view class="panel-sub">{{detail.timeStr}} 结束 · {{detail.summary.length}} 人</view>
+      <view class="detail-list">
+        <view class="detail-item" wx:for="{{detail.summary}}" wx:for-item="m" wx:key="name">
+          <view class="detail-name">{{m.name}}</view>
+          <view class="record-balance {{m.balance >= 0 ? 'win' : 'lose'}}">{{m.balanceStr}}</view>
+        </view>
+      </view>
+      <view class="panel-actions">
+        <button class="btn-primary" bindtap="onCloseDetail">关闭</button>
+      </view>
+    </view>
+  </view>
+</view>
